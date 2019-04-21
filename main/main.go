@@ -235,6 +235,7 @@ func createDocumentSegment(table Table) string {
 	buffer.WriteString("(")
 	buffer.WriteString(table.comment)
 	buffer.WriteString(")")
+	buffer.WriteString("\n")
 
 	buffer.WriteString("字段|描述")
 	buffer.WriteString("\n")
