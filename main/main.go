@@ -16,10 +16,15 @@ import(
 
 func main(){
 
-	sqlFile := flag.String("sql", "example.sql", "sql文件名")
+	sqlFile := flag.String("sql", "", "sql文件名，必填")
 	docFile := flag.String("doc", "example.md", "markdown文件名")
 
 	flag.Parse()
+
+	if *sqlFile == "" {
+		fmt.Println("请输入要解析的SQL文件的文件名")
+		return
+	}
 
 	fileName := *sqlFile
 	file,err := os.OpenFile(fileName, os.O_RDWR, 0666)
